@@ -24,7 +24,7 @@ def number_single_sequence(sequence, chain, scheme="imgt", allowed_species=['hum
     numbers = [x[0][0] for x in output]
 
     # Check for missing residues assuming imgt numbering
-    assert (max(numbers) > 120) and (min(numbers) < 8), f"Sequence missing too many residues to model correctly. Please give whole sequence:\n{sequence}"
+    assert (max(numbers) > 120) and (min(numbers) < 10), f"Sequence missing too many residues to model correctly. Please give whole sequence:\n{sequence}"
 
     # Renumber once sanity checks done
     if scheme == "raw":
