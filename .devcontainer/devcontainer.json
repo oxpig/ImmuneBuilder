@@ -1,0 +1,37 @@
+{
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "target": "devcontainer"
+    },
+    "name": "Python Dev Container",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2.5.3": {
+            "username": "devcontainer"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.12",
+            "installTools": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/opt/conda/bin/python",
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true
+            },
+            "extensions": [
+                "charliermarsh.ruff",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "github.vscode-github-actions",
+                "ms-azuretools.vscode-containers"
+            ]
+        }
+    },
+    "postCreateCommand": "export UV_PYTHON=/opt/conda/bin/python && uv pip install -e .[dev] && echo 'source /opt/conda/etc/profile.d/conda.sh && conda activate base' >> ~/.bashrc && echo 'export PATH=/opt/conda/bin:$PATH' >> ~/.bashrc && echo 'export UV_PYTHON=/opt/conda/bin/python' >> ~/.bashrc",
+    "remoteUser": "devcontainer",
+    "workspaceFolder": "/workspaces/ImmuneBuilder-dalton",
+    "shutdownAction": "stopContainer"
+}

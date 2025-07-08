@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ImmuneBuilder"
+version = "1.2"
+description = "Set of functions to predict the structure of immune receptor proteins"
+readme = "README.md"
+license = {text = "BSD 3-clause license"}
+maintainers = [
+    {name = "Brennan Abanades", email = "brennan.abanadeskenyon@stx.ox.ac.uk"}
+]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy",
+    "scipy>=1.6",
+    "einops>=0.3",
+    "torch>=1.8",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+
+[project.scripts]
+ABodyBuilder2 = "ImmuneBuilder.ABodyBuilder2:command_line_interface"
+TCRBuilder2 = "ImmuneBuilder.TCRBuilder2:command_line_interface"
+NanoBodyBuilder2 = "ImmuneBuilder.NanoBodyBuilder2:command_line_interface"
+
+[tool.setuptools.packages.find]
+include = ["ImmuneBuilder", "ImmuneBuilder.*"]
+
+[tool.uv.sources]
+immunebuilder = { workspace = true }
+
+[tool.setuptools]
+include-package-data = true 
