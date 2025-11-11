@@ -16,9 +16,13 @@ The weights of TCRBuilder2 have been updated to TCRBuilder2+. See the [pre-print
 Immune receptor proteins play a key role in the immune system and have shown great promise as biotherapeutics. The structure of these proteins is critical for understanding what antigen they bind. Here, we present ImmuneBuilder, a set of deep learning models trained to accurately predict the structure of antibodies (ABodyBuilder2), nanobodies (NanoBodyBuilder2) and T-Cell receptors (TCRBuilder2). We show that ImmuneBuilder generates structures with state of the art accuracy while being much faster than AlphaFold2. For example, on a benchmark of 34 recently solved antibodies, ABodyBuilder2 predicts CDR-H3 loops with an RMSD of 2.81Å, a 0.09Å improvement over AlphaFold-Multimer, while being over a hundred times faster. Similar results are also achieved for nanobodies (NanoBodyBuilder2 predicts CDR-H3 loops with an average RMSD of 2.89Å, a 0.55Å improvement over AlphaFold2) and TCRs. By predicting an ensemble of structures, ImmuneBuilder also gives an error estimate for every residue in its final prediction.
 
 
-## Colab
+## Colab & Web Apps
 
-To test the method out without installing it you can try this <a href="https://colab.research.google.com/github/brennanaba/ImmuneBuilder/blob/main/notebook/ImmuneBuilder.ipynb">Google Colab</a>
+To test the method out without installing it you can try this <a href="https://colab.research.google.com/github/brennanaba/ImmuneBuilder/blob/main/notebook/ImmuneBuilder.ipynb">Google Colab</a>.
+
+We also have live web tools to predict the structure of [antibodies](https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred/abodybuilder2/), [nanobodies](https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred/nanobodybuilder2/), and [TCRs](https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred/tcrbuilder2/).
+
+If you use this code or one of the web tools in your work, please [cite the relevant publication(s)](#citing-this-work).
 
 ## Install
 
