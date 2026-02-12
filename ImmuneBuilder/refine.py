@@ -343,7 +343,7 @@ def strained_sidechain_bonds_fixer(strained_residues, topology, positions, n_thr
     if n_threads > 0:
         # Set number of threads used by OpenMM
         platform = Platform.getPlatformByName('CPU')
-        simulation = app.Simulation(modeller.topology, system, integrator, platform, {'Threads', str(n_threads)})
+        simulation = app.Simulation(modeller.topology, system, integrator, platform, {'Threads': str(n_threads)})
     else:
         simulation = app.Simulation(modeller.topology, system, integrator)    
     simulation.context.setPositions(modeller.positions)
