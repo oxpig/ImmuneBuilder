@@ -1,0 +1,18 @@
+[workspace]
+authors = ["Brennan Abanades Kenyon <brennan.abanadeskenyon@stx.ox.ac.uk>"]
+channels = ["conda-forge", "bioconda"]
+name = "ImmuneBuilder"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+openmm = ">=8.5.1,<9"
+pdbfixer = ">=1.12,<2"
+anarci = ">=2024.5.21,<2025"
+llvm-openmp = ">=22.1.4,<23"
+pytorch = ">=2.10.0,<3"
+
+[pypi-dependencies]
+immunebuilder = ">=1.2, <2"

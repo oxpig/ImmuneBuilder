@@ -22,6 +22,20 @@ To test the method out without installing it you can try this <a href="https://c
 
 ## Install
 
+### Using `pixi`
+
+This package can be installed and ran using [`pixi`](https://pixi.prefix.dev/). In order to do that, clone repository and do
+
+```bash
+pixi install
+```
+
+Then models can be run with
+
+```bash
+pixi run NanoBodyBuilder2 --fasta_file test.fasta -v
+```
+
 ### Requirements
 
 This package requires PyTorch. If you do not already have PyTorch installed, you can do so following these <a href="https://pytorch.org/get-started/locally/">instructions</a>.
