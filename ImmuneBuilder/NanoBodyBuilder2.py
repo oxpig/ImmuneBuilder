@@ -152,6 +152,7 @@ def command_line_interface():
     parser.add_argument("--n_threads", help="The number of CPU threads to be used. If this option is set, refinement will be performed on CPU instead of GPU. By default, all available cores will be used.", type=int, default=-1)
     parser.add_argument("-n", "--numbering_scheme", help="The scheme used to number output nanobody structures. Available numbering schemes are: imgt, chothia, kabat, aho, wolfguy, martin and raw. Default is imgt.", default='imgt')
     parser.add_argument("-u", "--no_sidechain_bond_check", help="Don't check for strained bonds. This is a bit faster but will rarely generate unphysical side chains", default=False, action="store_true")
+    parser.add_argument("--weights_dir", help="Directory containing the model weights. Missing weights are downloaded into it. Defaults to the trained_model directory inside the installed package.", default=None)
     parser.add_argument("-v", "--verbose", help="Verbose output", default=False, action="store_true")
 
     args = parser.parse_args()
@@ -175,7 +176,7 @@ def command_line_interface():
         print("Running sequence through deep learning model...", flush=True)
 
     try:
-        antibody = NanoBodyBuilder2(numbering_scheme=args.numbering_scheme).predict(seqs)
+        antibody = NanoBodyBuilder2(numbering_scheme=args.numbering_scheme, weights_dir=args.weights_dir).predict(seqs)
     except AssertionError as e:
         print(e, flush=True)
         sys.exit(1)

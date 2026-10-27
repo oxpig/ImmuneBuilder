@@ -173,6 +173,7 @@ def command_line_interface():
     "If this flag is set the output argument will be assumed to be a directory", default=False, action="store_true")
     parser.add_argument("--n_threads", help="The number of CPU threads to be used. If this option is set, refinement will be performed on CPU instead of GPU. By default, all available cores will be used.", type=int, default=-1)
     parser.add_argument("-u", "--no_sidechain_bond_check", help="Don't check for strained bonds. This is a bit faster but will rarely generate unphysical side chains", default=False, action="store_true")
+    parser.add_argument("--weights_dir", help="Directory containing the model weights. Missing weights are downloaded into it. Defaults to the trained_model directory inside the installed package.", default=None)
     parser.add_argument("-v", "--verbose", help="Verbose output", default=False, action="store_true")
     parser.add_argument("-og", "--original_weights", help="use original TCRBuilder2 weights instead of TCRBuilder2+", default=False, action="store_true")
 
@@ -197,7 +198,7 @@ def command_line_interface():
         print("Running sequences through deep learning model...", flush=True)
 
     try:
-        tcr = TCRBuilder2(use_TCRBuilder2_PLUS_weights=not args.original_weights).predict(seqs)
+        tcr = TCRBuilder2(weights_dir=args.weights_dir, use_TCRBuilder2_PLUS_weights=not args.original_weights).predict(seqs)
     except AssertionError as e:
         print(e, flush=True)
         sys.exit(1)
